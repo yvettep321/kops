@@ -128,13 +128,13 @@ func (c *GCEModelContext) LinkToServiceAccount(ig *kops.InstanceGroup) *gcetasks
 	name := ""
 	switch role {
 	case kops.InstanceGroupRoleAPIServer, kops.InstanceGroupRoleMaster:
-		name = gce.ControlPlane
+		name = "control-plane"
 
 	case kops.InstanceGroupRoleBastion:
-		name = gce.Bastion
+		name = "bastion"
 
 	case kops.InstanceGroupRoleNode:
-		name = gce.Node
+		name = "node"
 
 	default:
 		klog.Fatalf("unknown role %q", role)
